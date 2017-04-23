@@ -6,9 +6,6 @@ const Container = styled.ul`
   list-style: none;
   box-sizing: border-box;
   padding-left: 0;
-  background: ${props => props.background}
-  width: 100px;
-  height: 100px;
   
   *, *:before, *:after {
     box-sizing: inherit;
@@ -31,12 +28,12 @@ class FloatingMenu extends Component {
   };
 
   render() {
-    const { sliderSpeed } = this.props;
+    const { slideSpeed } = this.props;
     const { isOpen } = this.state;
     const childrenWithProps = React.Children.map(this.props.children,
       child => React.cloneElement(child, {
         isOpen,
-        sliderSpeed,
+        slideSpeed,
       }),
     );
 
@@ -50,7 +47,7 @@ class FloatingMenu extends Component {
 
 FloatingMenu.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  sliderSpeed: PropTypes.number,
+  slideSpeed: PropTypes.number,
 };
 
 FloatingMenu.defaultProps = {

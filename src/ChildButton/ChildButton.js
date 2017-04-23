@@ -5,11 +5,11 @@ import styled from 'styled-components';
 const Wrapper = styled.li`
   position: fixed;
   opacity: ${props => (props.isOpen ? 1 : 0)};
-  transition: all ${props => (props.sliderSpeed)}ms;
+  transition: all ${props => (props.slideSpeed)}ms;
   transform: translateY(${props => (props.isOpen ? props.order * 30 : 0)}px);
   
   display: flex;
-  background-color: #e9e9e9;
+  background-color: ${props => props.backgroundColor};
   position: relative;
   border: none;
   border-radius: 50%;
@@ -21,8 +21,14 @@ const Wrapper = styled.li`
   -webkit-user-drag: none;
   font-weight: bold;
   color: #f1f1f1;
-  width: 56px;
-  height: 56px;
+  width: ${props => props.buttonSize}px;
+  height: ${props => props.buttonSize}px;
+  justify-content: center;
+  align-items: center;
+  
+  & > a > svg {
+    fill: black;
+  }
 `;
 
 
