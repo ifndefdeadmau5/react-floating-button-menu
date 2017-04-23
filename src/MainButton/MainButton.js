@@ -16,8 +16,8 @@ class MainButton extends Component {
 }
 
 MainButton.propTypes = {
-  iconResting: PropTypes.element.isRequired,
-  iconActive: PropTypes.element.isRequired,
+  iconResting: PropTypes.func.isRequired,
+  iconActive: PropTypes.func.isRequired,
 };
 
 export default MainButton;

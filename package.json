@@ -20,7 +20,8 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
-    "styled-components": "^1.4.5"
+    "react-icons": "^2.2.3",
+    "styled-components": "1.4.4"
   },
   "scripts": {
     "start": "webpack-dev-server"
