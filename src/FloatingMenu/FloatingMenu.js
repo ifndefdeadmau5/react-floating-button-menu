@@ -23,7 +23,6 @@ class FloatingMenu extends Component {
   toggleMenu = (event) => {
     event.preventDefault();
     console.log('toggleMenu');
-    console.log(this.props.background);
 
     // flip the state from open to close and viceversa
     this.setState({

@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
         <h2>Hello, World</h2>
-        <FloatingMenu background="red" sliderSpeed={150}>
+        <FloatingMenu background="red" sliderSpeed={500}>
           <MainButton iconResting={MdAdd} iconActive={MdClose} />
           <ChildButton iconButton={MdAdd} order={1} />
           <ChildButton iconButton={MdAdd} order={2} />
