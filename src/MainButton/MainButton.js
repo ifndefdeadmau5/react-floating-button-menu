@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.a`
   background-color: ${props => props.backgroundColor};
   display: flex;
-  position: relative;
+  position: fixed !important;
   border: none;
   border-radius: 50%;
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
@@ -25,7 +25,7 @@ const Wrapper = styled.a`
 const IconResting = props => (
    styled(props.iconResting)`
     position: fixed;
-    fill: red;
+    fill: ${props.iconColor};
     opacity: ${(props.isOpen ? 0 : 1)};
   `
 );

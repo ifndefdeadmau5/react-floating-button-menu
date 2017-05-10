@@ -6,11 +6,25 @@ const Wrapper = styled.li`
   position: fixed;
   opacity: ${props => (props.isOpen ? 1 : 0)};
   transition: all ${props => (props.slideSpeed)}ms;
-  transform: translateY(${props => (props.isOpen ? props.order * 30 : 0)}px);
-  
+  ${
+  (props) => {
+    switch (props.direction) {
+      case 'left':
+        return `transform: translate(${props.isOpen ? props.order * 60 * -1 : 0}px, 0px);`;
+      case 'right':
+        return `transform: translate(${props.isOpen ? props.order * 60 * 1 : 0}px, 0px);`;
+      case 'up':
+        return `transform: translate(0px, ${props.isOpen ? props.order * 60 * -1 : 0}px);`;
+      case 'down':
+        return `transform: translate(0px, ${props.isOpen ? props.order * 60 * 1 : 0}px);`;
+      default:
+        return `transform: translate(0px, ${props.isOpen ? props.order * 60 * 1 : 0}px);`;
+    }
+  }
+  }
   display: flex;
   background-color: ${props => props.backgroundColor};
-  position: relative;
+  position: fixed !important;
   border: none;
   border-radius: 50%;
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
@@ -20,7 +34,6 @@ const Wrapper = styled.li`
   position: relative;
   -webkit-user-drag: none;
   font-weight: bold;
-  color: #f1f1f1;
   width: ${props => props.buttonSize}px;
   height: ${props => props.buttonSize}px;
   justify-content: center;
@@ -33,6 +46,16 @@ const Wrapper = styled.li`
 
 
 class ChildButton extends Component {
+  static propTypes = {
+    iconButton: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    direction: PropTypes.string,
+  };
+
+  static defaultProps = {
+    direction: 'down',
+  };
+
   render() {
     const { iconButton, ...other } = this.props;
     const IconButton = iconButton;
@@ -46,10 +69,5 @@ class ChildButton extends Component {
     );
   }
 }
-
-ChildButton.propTypes = {
-  iconButton: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-};
 
 export default ChildButton;
