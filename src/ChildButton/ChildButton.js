@@ -9,16 +9,17 @@ const Wrapper = styled.li`
   ${
   (props) => {
     switch (props.direction) {
+      // TODO: Do not fix the transform value to 60, calculate it based on given buttonSize.
       case 'left':
-        return `transform: translate(${props.isOpen ? props.order * 60 * -1 : 0}px, 0px);`;
+        return `transform: translate(${props.isOpen ? props.order * 70 * -1 : 0}px, 0px);`;
       case 'right':
-        return `transform: translate(${props.isOpen ? props.order * 60 * 1 : 0}px, 0px);`;
+        return `transform: translate(${props.isOpen ? props.order * 70 * 1 : 0}px, 0px);`;
       case 'up':
-        return `transform: translate(0px, ${props.isOpen ? props.order * 60 * -1 : 0}px);`;
+        return `transform: translate(0px, ${props.isOpen ? props.order * 70 * -1 : 0}px);`;
       case 'down':
-        return `transform: translate(0px, ${props.isOpen ? props.order * 60 * 1 : 0}px);`;
+        return `transform: translate(0px, ${props.isOpen ? props.order * 70 * 1 : 0}px);`;
       default:
-        return `transform: translate(0px, ${props.isOpen ? props.order * 60 * 1 : 0}px);`;
+        return `transform: translate(0px, ${props.isOpen ? props.order * 70 * 1 : 0}px);`;
     }
   }
   }
