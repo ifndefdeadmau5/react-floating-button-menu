@@ -1,28 +1,11 @@
-const { resolve } = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  context: resolve(__dirname, 'src'),
-
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './index.js',
-  ],
+  entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
-    path: resolve(__dirname, 'dist'),
-    publicPath: '/',
-  },
-
-  devtool: 'inline-source-map',
-
-  devServer: {
-    hot: true,
-    contentBase: resolve(__dirname, 'dist'),
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'react-fab-menu.js',
+    library: 'reactFloatingButtonMenu',
   },
   module: {
     rules: [
@@ -37,11 +20,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-    }),
-  ],
+  externals: {
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: '_',
+    },
+  },
 };

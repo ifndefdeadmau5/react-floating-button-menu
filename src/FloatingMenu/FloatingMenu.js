@@ -27,7 +27,7 @@ class FloatingMenu extends Component {
     event.preventDefault();
     this.setState({
       isOpen: !this.state.isOpen,
-    }, () => console.log(this.state.isOpen));
+    });
   };
 
   render() {
