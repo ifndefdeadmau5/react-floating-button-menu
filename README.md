@@ -52,5 +52,6 @@ import MdClose from 'react-icons/lib/md/close';
 ```sh
 git clone https://github.com/ifndefdeadmau5/react-floating-button-menu.git
 cd react-floating-button-menu/docs
+npm install
 npm start
 ```
