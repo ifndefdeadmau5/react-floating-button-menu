@@ -1,7 +1,17 @@
 {
-  "name": "react-floating-button-menu",
-  "version": "1.0.2",
-  "description": "A Customizable Material floating button menu implementation made with styled-component & react",
+  "name": "react-floating-button-menu-docs",
+  "version": "1.0.0",
+  "description": "docs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack -p",
+    "release": "node ./script/deploytoGithubPage.js",
+    "prerelease": "npm run build",
+    "test": "jest"
+  },
+  "author": "ifndefdeadmau5 <ifndefdeadmau5@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
@@ -14,7 +24,6 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "fs-extra": "^3.0.1",
     "gh-pages": "^1.0.0",
     "html-webpack-plugin": "^2.28.0",
     "webpack": "^2.4.1",
@@ -28,13 +37,5 @@
     "react-icons": "^2.2.3",
     "styled-components": "1.4.5",
     "yargs": "^8.0.1"
-  },
-  "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack -p",
-    "build:es2015": "babel ./src --ignore App.js --out-dir ./build",
-    "build:injectBuildFiles": "babel-node ./scripts/injectBuildFiles.js"
-  },
-  "main": "dist/react-fab-menu.js",
-  "module": "src/index.js"
+  }
 }

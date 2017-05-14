@@ -22,7 +22,6 @@ const Wrapper = styled.li`
     }
   }
   }
-  margin-top: 8px;
   display: flex;
   background-color: ${props => props.backgroundColor};
   position: absolute;
