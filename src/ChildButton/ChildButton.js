@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Wrapper = styled.li`
   opacity: ${props => (props.isOpen ? 1 : 0)};
@@ -12,7 +12,7 @@ const Wrapper = styled.li`
       case 'left':
         return `transform: translate(${props.isOpen ? props.order * 60 * -1 : 0}px, 0px);`;
       case 'right':
-        return `transform: translate(${props.isOpen ? props.order * 60 * 1 : 0}px, 0px);`;
+        return `transform: translate(${props.isOpen ? (10 + (props.order * 30)) * 1 : 0}px, 0px);`;
       case 'up':
         return `transform: translate(0px, ${props.isOpen ? props.order * 60 * -1 : 0}px);`;
       case 'down':
@@ -30,6 +30,11 @@ const Wrapper = styled.li`
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
   cursor: pointer;
   outline: none;
+  ${
+    props => ((props.direction === 'left' || props.direction === 'right') ?
+      css`margin-top: ${ props.offset}px` :
+      css`margin-left: ${ props.offset}px`)
+  }
   padding: 0;
   -webkit-user-drag: none;
   font-weight: bold;
@@ -46,15 +51,19 @@ const Wrapper = styled.li`
 
 class ChildButton extends Component {
   static propTypes = {
+    buttonSize: PropTypes.number,
     iconButton: PropTypes.func.isRequired,
     iconColor: PropTypes.string,
     isOpen: PropTypes.bool.isRequired,
     direction: PropTypes.string,
+    offset: PropTypes.number,
   };
 
   static defaultProps = {
+    buttonSize: 56,
     direction: 'down',
     iconColor: 'black',
+    offset: 0,
   };
 
   render() {

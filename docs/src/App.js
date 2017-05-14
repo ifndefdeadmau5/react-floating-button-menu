@@ -35,7 +35,7 @@ class App extends Component {
       <Contanier>
         <SampleBox>
           <h2></h2>
-          <StyledFloatingMenu slideSpeed={500} direction="down">
+          <StyledFloatingMenu slideSpeed={500} direction="right">
             <MainButton
               iconResting={MdAdd}
               iconActive={MdClose}
@@ -48,14 +48,16 @@ class App extends Component {
               iconColor="black"
               order={1}
               backgroundColor="white"
-              buttonSize="56"
+              buttonSize="40"
+              offset={8}
             />
             <ChildButton
               iconButton={MdAdd}
               iconColor="black"
               order={2}
               backgroundColor="white"
-              buttonSize="56"
+              buttonSize="40"
+              offset={8}
             />
           </StyledFloatingMenu>
         </SampleBox>

@@ -19,6 +19,18 @@ const StyledUl = styled.ul`
 `;
 
 class FloatingMenu extends Component {
+  static propTypes = {
+    children: PropTypes.arrayOf(PropTypes.element).isRequired,
+    slideSpeed: PropTypes.number,
+    direction: PropTypes.string,
+  };
+
+  static defaultProps = {
+    background: 'palevioletred',
+    slideSpeed: 500,
+    direction: 'down',
+  };
+
   state = {
     isOpen: false,
   };
@@ -50,17 +62,5 @@ class FloatingMenu extends Component {
     );
   }
 }
-
-FloatingMenu.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  slideSpeed: PropTypes.number,
-  direction: PropTypes.string,
-};
-
-FloatingMenu.defaultProps = {
-  background: 'palevioletred',
-  slideSpeed: 500,
-  direction: 'down',
-};
 
 export default FloatingMenu;

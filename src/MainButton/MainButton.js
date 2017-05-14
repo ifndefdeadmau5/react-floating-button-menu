@@ -49,6 +49,7 @@ class MainButton extends Component {
     iconResting: PropTypes.func.isRequired,
     iconActive: PropTypes.func.isRequired,
     iconColor: PropTypes.string,
+    isOpen: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
