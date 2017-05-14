@@ -1,4 +1,6 @@
 # React Floating Button Menu
+**NOTE: This implemntation isn't production ready**
+
 A Material floating button menu implementation made with styled-component &amp; react
 
 Inspired by [react-material-floating-button](https://github.com/nobitagit/react-material-floating-button)
