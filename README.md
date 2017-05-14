@@ -1,5 +1,4 @@
 # React Floating Button Menu
-**NOTE: This implemntation isn't production ready**
 
 A Material floating button menu implementation made with styled-component &amp; react
 
@@ -51,7 +50,9 @@ import MdClose from 'react-icons/lib/md/close';
 ## Try the Demos Locally
 ```sh
 git clone https://github.com/ifndefdeadmau5/react-floating-button-menu.git
-cd react-floating-button-menu/docs
+cd react-floating-button-menu
+npm install
+cd docs
 npm install
 npm start
 ```
