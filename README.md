@@ -16,6 +16,7 @@ See the [project page](https://ifndefdeadmau5.github.io/react-floating-button-me
 ```javascript
 import { FloatingMenu, MainButton, ChildButton } from 'react-floating-button-menu/build';
 import MdAdd from 'react-icons/lib/md/add';
+import MdClose from 'react-icons/lib/md/close';
 
 ...
   <FloatingMenu slideSpeed={500} direction="left">
