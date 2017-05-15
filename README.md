@@ -12,6 +12,8 @@ Inspired by [react-material-floating-button](https://github.com/nobitagit/react-
 
 See the [project page](https://ifndefdeadmau5.github.io/react-floating-button-menu/)
 
+<img src="https://media.giphy.com/media/3o7bu7E67NHt6tOuKA/giphy.gif">
+
 ## Usage
 
 You can customize opening direction, speed, and styles of each button by props. Other options will be added soon
