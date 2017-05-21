@@ -12,6 +12,7 @@ const StyledFloatingMenu = styled(FloatingMenu)`
 
 const Contanier = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
 const SampleBox = styled.div`
@@ -33,22 +34,44 @@ class App extends Component {
   render() {
     return (
       <Contanier>
+        <h2>Material Floating Button Menu Demo</h2>
         <SampleBox>
-          <h2></h2>
-          <StyledFloatingMenu slideSpeed={500} direction="right">
+          <StyledFloatingMenu slideSpeed={500} direction="right" size={{ main: 56, child: 56 }}>
             <MainButton
               iconResting={MdAdd}
               iconActive={MdClose}
               iconColor="white"
               backgroundColor="black"
-              buttonSize="56"
             />
             <ChildButton
               iconButton={MdAdd}
               iconColor="black"
               order={1}
               backgroundColor="white"
-              buttonSize="40"
+            />
+            <ChildButton
+              iconButton={MdAdd}
+              iconColor="black"
+              order={2}
+              backgroundColor="white"
+            />
+          </StyledFloatingMenu>
+        </SampleBox>
+
+        <SampleBox>
+          <h2></h2>
+          <StyledFloatingMenu slideSpeed={500} direction="down" size={{ main: 56, child: 48 }}>
+            <MainButton
+              iconResting={MdAdd}
+              iconActive={MdClose}
+              iconColor="white"
+              backgroundColor="black"
+            />
+            <ChildButton
+              iconButton={MdAdd}
+              iconColor="black"
+              order={1}
+              backgroundColor="white"
               offset={8}
             />
             <ChildButton
@@ -56,7 +79,6 @@ class App extends Component {
               iconColor="black"
               order={2}
               backgroundColor="white"
-              buttonSize="40"
               offset={8}
             />
           </StyledFloatingMenu>

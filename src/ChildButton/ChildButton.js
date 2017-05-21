@@ -12,7 +12,7 @@ const Wrapper = styled.li`
       case 'left':
         return `transform: translate(${props.isOpen ? props.order * 60 * -1 : 0}px, 0px);`;
       case 'right':
-        return `transform: translate(${props.isOpen ? (10 + (props.order * 30)) * 1 : 0}px, 0px);`;
+        return `transform: translate(${props.isOpen ? props.order * 60 : 0}px, 0px);`;
       case 'up':
         return `transform: translate(0px, ${props.isOpen ? props.order * 60 * -1 : 0}px);`;
       case 'down':
@@ -32,14 +32,14 @@ const Wrapper = styled.li`
   outline: none;
   ${
     props => ((props.direction === 'left' || props.direction === 'right') ?
-      css`margin-top: ${ props.offset}px` :
-      css`margin-left: ${ props.offset}px`)
+      css`margin-top: ${(props.size.main - props.size.child) / 2}px` :
+      css`margin-left: ${(props.size.main - props.size.child) / 2}px`)
   }
   padding: 0;
   -webkit-user-drag: none;
   font-weight: bold;
-  width: ${props => props.buttonSize}px;
-  height: ${props => props.buttonSize}px;
+  width: ${props => props.size.child}px;
+  height: ${props => props.size.child}px;
   justify-content: center;
   align-items: center;
   
@@ -51,19 +51,25 @@ const Wrapper = styled.li`
 
 class ChildButton extends Component {
   static propTypes = {
-    buttonSize: PropTypes.number,
     iconButton: PropTypes.func.isRequired,
     iconColor: PropTypes.string,
     isOpen: PropTypes.bool.isRequired,
     direction: PropTypes.string,
     offset: PropTypes.number,
+    size: PropTypes.shape({
+      main: PropTypes.number,
+      child: PropTypes.number,
+    }),
   };
 
   static defaultProps = {
-    buttonSize: 56,
     direction: 'down',
     iconColor: 'black',
     offset: 0,
+    size: {
+      main: 56,
+      child: 56,
+    },
   };
 
   render() {

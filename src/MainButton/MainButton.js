@@ -16,8 +16,8 @@ const Wrapper = styled.a`
   -webkit-user-drag: none;
   font-weight: bold;
   color: #f1f1f1;
-  width: ${props => props.buttonSize}px;
-  height: ${props => props.buttonSize}px;
+  width: ${props => props.size.main}px;
+  height: ${props => props.size.main}px;
   justify-content: center;
   align-items: center;
   -webkit-transition: -webkit-transform 300ms;
@@ -50,10 +50,18 @@ class MainButton extends Component {
     iconActive: PropTypes.func.isRequired,
     iconColor: PropTypes.string,
     isOpen: PropTypes.bool.isRequired,
+    size: PropTypes.shape({
+      main: PropTypes.number,
+      child: PropTypes.number,
+    }),
   };
 
   static defaultProps = {
     iconColor: '#ff1744',
+    size: {
+      main: 56,
+      child: 56,
+    },
   };
 
   render() {
