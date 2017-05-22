@@ -23,27 +23,24 @@ import MdAdd from 'react-icons/lib/md/add';
 import MdClose from 'react-icons/lib/md/close';
 
 ...
-  <FloatingMenu slideSpeed={500} direction="left">
+  <FloatingMenu slideSpeed={500} direction="left" size={{ main: 56, child: 40 }}>
     <MainButton
       iconResting={MdAdd}
       iconActive={MdClose}
       iconColor="white"
       backgroundColor="black"
-      buttonSize="56"
     />
     <ChildButton
       iconButton={MdAdd}
       iconColor="black"
       order={1}
       backgroundColor="white"
-      buttonSize="56"
     />
     <ChildButton
       iconButton={MdAdd}
       iconColor="black"
       order={2}
       backgroundColor="white"
-      buttonSize="56"
     />
   </FloatingMenu>
 ...
