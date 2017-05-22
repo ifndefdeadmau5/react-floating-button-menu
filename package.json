@@ -1,6 +1,6 @@
 {
   "name": "react-floating-button-menu",
-  "version": "1.0.2",
+  "version": "1.0.8",
   "description": "A Customizable Material floating button menu implementation made with styled-component & react",
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -16,13 +16,18 @@
     "eslint-plugin-react": "^6.10.3",
     "fs-extra": "^3.0.1",
     "gh-pages": "^1.0.0",
+    "gzip-size": "^3.0.0",
     "html-webpack-plugin": "^2.28.0",
+    "in-publish": "^2.0.0",
+    "pretty-bytes": "^4.0.2",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.3"
   },
+  "peerDependencies": {
+    "react": "^15"
+  },
   "dependencies": {
     "prop-types": "^15.5.8",
-    "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
     "react-icons": "^2.2.3",
@@ -31,10 +36,23 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack -p",
-    "build:es2015": "babel ./src --ignore App.js --out-dir ./build",
-    "build:injectBuildFiles": "babel-node ./scripts/injectBuildFiles.js"
+    "build": "babel-node ./tools/build.js",
+    "prepublish": "babel-node ./tools/build.js"
   },
-  "main": "dist/react-fab-menu.js",
-  "module": "src/index.js"
+  "main": "index.js",
+  "module": "es/index.js",
+  "files": [
+    "ChildButton.js",
+    "MainButton.js",
+    "FloatingMenu.js",
+    "index.js",
+    "es",
+    "umd"
+  ],
+  "keywords": [
+    "react",
+    "ui",
+    "floating button",
+    "styled-components"
+  ]
 }

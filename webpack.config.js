@@ -1,11 +1,9 @@
-const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'react-fab-menu.js',
     library: 'reactFloatingButtonMenu',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
@@ -14,18 +12,20 @@ module.exports = {
         use: ['babel-loader'],
         exclude: /node_modules/,
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader?modules'],
-      },
     ],
   },
   externals: {
     react: {
+      root: 'React',
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'react',
-      root: '_',
     },
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    }),
+  ],
 };
+

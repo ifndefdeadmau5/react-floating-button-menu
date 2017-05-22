@@ -53,7 +53,7 @@ class ChildButton extends Component {
   static propTypes = {
     iconButton: PropTypes.func.isRequired,
     iconColor: PropTypes.string,
-    isOpen: PropTypes.bool.isRequired,
+    isOpen: PropTypes.bool,
     direction: PropTypes.string,
     offset: PropTypes.number,
     size: PropTypes.shape({
@@ -70,6 +70,7 @@ class ChildButton extends Component {
       main: 56,
       child: 56,
     },
+    isOpen: false,
   };
 
   render() {

@@ -1,3 +1,3 @@
-export { default as ChildButton } from './ChildButton';
-export { default as MainButton } from './MainButton';
-export { default as FloatingMenu } from './FloatingMenu';
+export ChildButton from './ChildButton';
+export MainButton from './MainButton';
+export FloatingMenu from './FloatingMenu';

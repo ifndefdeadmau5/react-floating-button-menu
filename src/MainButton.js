@@ -49,7 +49,7 @@ class MainButton extends Component {
     iconResting: PropTypes.func.isRequired,
     iconActive: PropTypes.func.isRequired,
     iconColor: PropTypes.string,
-    isOpen: PropTypes.bool.isRequired,
+    isOpen: PropTypes.bool,
     size: PropTypes.shape({
       main: PropTypes.number,
       child: PropTypes.number,
@@ -62,6 +62,7 @@ class MainButton extends Component {
       main: 56,
       child: 56,
     },
+    isOpen: false,
   };
 
   render() {

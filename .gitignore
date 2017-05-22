@@ -40,3 +40,9 @@ jspm_packages
 
 build
 docs/dist
+es
+umd
+ChildButton.js
+MainButton.js
+FloatingMenu.js
+index.js
