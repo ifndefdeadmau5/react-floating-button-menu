@@ -55,3 +55,6 @@ cd docs
 npm install
 npm start
 ```
+
+## Contributing
+Please submit issues.
