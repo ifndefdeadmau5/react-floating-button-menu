@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.a`
+  z-index: 1;
   background-color: ${props => props.backgroundColor};
   display: flex;
   position: absolute;
@@ -16,8 +17,8 @@ const Wrapper = styled.a`
   -webkit-user-drag: none;
   font-weight: bold;
   color: #f1f1f1;
-  width: ${props => props.size.main}px;
-  height: ${props => props.size.main}px;
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
   justify-content: center;
   align-items: center;
   -webkit-transition: -webkit-transform 300ms;
@@ -50,19 +51,13 @@ class MainButton extends Component {
     iconActive: PropTypes.func.isRequired,
     iconColor: PropTypes.string,
     isOpen: PropTypes.bool,
-    size: PropTypes.shape({
-      main: PropTypes.number,
-      child: PropTypes.number,
-    }),
+    size: PropTypes.number,
   };
 
   static defaultProps = {
     iconColor: '#ff1744',
-    size: {
-      main: 56,
-      child: 56,
-    },
     isOpen: false,
+    size: 56,
   };
 
   render() {

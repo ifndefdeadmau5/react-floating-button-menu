@@ -23,20 +23,12 @@ class FloatingMenu extends Component {
     children: PropTypes.arrayOf(PropTypes.element).isRequired,
     slideSpeed: PropTypes.number,
     direction: PropTypes.string,
-    size: PropTypes.shape({
-      main: PropTypes.number,
-      child: PropTypes.number,
-    }),
   };
 
   static defaultProps = {
     background: 'palevioletred',
     slideSpeed: 500,
     direction: 'down',
-    size: {
-      main: 56,
-      child: 56,
-    },
   };
 
   state = {
@@ -51,14 +43,13 @@ class FloatingMenu extends Component {
   };
 
   render() {
-    const { slideSpeed, direction, size } = this.props;
+    const { slideSpeed, direction } = this.props;
     const { isOpen } = this.state;
     const childrenWithProps = React.Children.map(this.props.children,
       child => React.cloneElement(child, {
         isOpen,
         slideSpeed,
         direction,
-        size,
       }),
     );
 
