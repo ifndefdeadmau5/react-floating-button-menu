@@ -7,7 +7,6 @@ const Wrapper = styled.a`
   z-index: 1;
   background-color: ${props => props.backgroundColor};
   display: flex;
-  position: absolute;
   border: none;
   border-radius: 50%;
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);

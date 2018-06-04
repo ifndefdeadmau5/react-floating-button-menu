@@ -11,11 +11,12 @@ const Container = styled.div`
     box-sizing: inherit;
   }
 `;
-
 const StyledUl = styled.ul`
-   list-style: none;
-   margin: 0;
-   padding: 0;
+  position: absolute;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 
 class FloatingMenu extends Component {

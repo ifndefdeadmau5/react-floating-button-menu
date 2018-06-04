@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const Wrapper = styled('li')(
   ({ isOpen, slideSpeed, backgroundColor, size, iconColor }) => ({
     display: 'flex',
-    position: 'absolute',
     border: 'none',
     borderRadius: '50%',
     boxShadow: '0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28)',
