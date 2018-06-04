@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-jss';
 import PropTypes from 'prop-types';
-// import styled, { css } from 'styled-components';
 
 const Wrapper = styled('li')(
   ({ isOpen, slideSpeed, backgroundColor, size, iconColor }) => ({
