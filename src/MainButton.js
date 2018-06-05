@@ -7,7 +7,6 @@ const Wrapper = styled('a')(
   ({ backgroundColor, size }) => ({
     zIndex: '1',
     display: 'flex',
-    position: 'absolute',
     border: 'none',
     borderRadius: '50%',
     boxShadow: '0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28)',
@@ -25,20 +24,21 @@ const Wrapper = styled('a')(
     height: size,
     backgroundColor,
   }),
-  ({ isOpen }) =>
-    isOpen && {
-      WebkitTransform: 'rotate(180deg)',
-      transform: 'rotate(180deg)',
-    },
+  ({ isOpen }) => ({
+    WebkitTransform: `rotate(${isOpen ? 180 : 0}deg)`,
+    transform: `rotate(${isOpen ? 180 : 0}deg)`,
+  }),
 );
 const IconResting = ({ iconResting, isOpen }) =>
   styled(iconResting)`
+    position: absolute;
     opacity: ${isOpen ? 0 : 1};
   `;
 const IconActive = ({ iconActive, isOpen }) =>
-styled(iconActive)`
-  opacity: ${isOpen ? 1 : 0};
-`;
+  styled(iconActive)`
+    position: absolute;
+    opacity: ${isOpen ? 1 : 0};
+  `;
 
 class MainButton extends Component {
   static propTypes = {
@@ -56,8 +56,12 @@ class MainButton extends Component {
   };
 
   render() {
-    const StyledIconResting = IconResting(this.props);
-    const StyledIconActive = IconActive(this.props);
+    const { iconResting, iconActive, isOpen } = this.props;
+    const StyledIconResting = IconResting({ iconResting, isOpen });
+    const StyledIconActive = IconActive({ iconActive, isOpen });
+
+    console.log(StyledIconResting)
+    console.log(StyledIconActive);
 
     return (
       <Wrapper {...this.props}>
