@@ -30,15 +30,15 @@ const Wrapper = styled('a')(
   }),
 );
 const IconResting = ({ iconResting, isOpen }) =>
-  styled(iconResting)`
-    position: absolute;
-    opacity: ${isOpen ? 0 : 1};
-  `;
+  styled(iconResting)({
+    position: 'absolute',
+    opacity: isOpen ? 0 : 1,
+  });
 const IconActive = ({ iconActive, isOpen }) =>
-  styled(iconActive)`
-    position: absolute;
-    opacity: ${isOpen ? 1 : 0};
-  `;
+  styled(iconActive)({
+    position: 'absolute',
+    opacity: isOpen ? 1 : 0,
+  });
 
 class MainButton extends Component {
   static propTypes = {
