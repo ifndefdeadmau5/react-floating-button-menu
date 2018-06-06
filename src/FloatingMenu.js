@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import styledJss from 'styled-jss';
 
 const Container = styled.div`
   display: flex;
   box-sizing: border-box;
   padding-left: 0;
-  
-  *, *:before, *:after {
+
+  *,
+  *:before,
+  *:after {
     box-sizing: inherit;
   }
 `;
-const StyledUl = styled.ul`
-  position: absolute;
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
+const StyledUl = styledJss('ul')({
+  position: 'absolute',
+  display: 'flex',
+  listStyle: 'none',
+  margin: '0',
+  padding: '0',
+},
+({ up }) => ({
+  flexDirection: up ? 'row-reverse' : 'column-reverse',
+}),
+);
 
 class FloatingMenu extends Component {
   static propTypes = {
@@ -36,7 +43,7 @@ class FloatingMenu extends Component {
     isOpen: false,
   };
 
-  toggleMenu = (event) => {
+  toggleMenu = event => {
     event.preventDefault();
     this.setState({
       isOpen: !this.state.isOpen,
@@ -46,8 +53,8 @@ class FloatingMenu extends Component {
   render() {
     const { slideSpeed, direction } = this.props;
     const { isOpen } = this.state;
-    const childrenWithProps = React.Children.map(this.props.children,
-      child => React.cloneElement(child, {
+    const childrenWithProps = React.Children.map(this.props.children, child =>
+      React.cloneElement(child, {
         isOpen,
         slideSpeed,
         direction,
@@ -56,9 +63,7 @@ class FloatingMenu extends Component {
 
     return (
       <Container {...this.props}>
-        <StyledUl onClick={this.toggleMenu}>
-          {childrenWithProps}
-        </StyledUl>
+        <StyledUl onClick={this.toggleMenu} direction={direction}>{childrenWithProps}</StyledUl>
       </Container>
     );
   }

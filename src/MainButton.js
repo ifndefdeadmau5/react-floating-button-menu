@@ -60,9 +60,6 @@ class MainButton extends Component {
     const StyledIconResting = IconResting({ iconResting, isOpen });
     const StyledIconActive = IconActive({ iconActive, isOpen });
 
-    console.log(StyledIconResting)
-    console.log(StyledIconActive);
-
     return (
       <Wrapper {...this.props}>
         <StyledIconResting />
