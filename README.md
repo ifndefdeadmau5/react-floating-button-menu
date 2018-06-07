@@ -1,6 +1,6 @@
 # React Floating Button Menu
 
-A Material floating button menu implementation made with styled-component &amp; react
+A Material floating button menu
 
 Inspired by [react-material-floating-button](https://github.com/nobitagit/react-material-floating-button)
 
@@ -12,35 +12,41 @@ Inspired by [react-material-floating-button](https://github.com/nobitagit/react-
 
 See the [project page](https://ifndefdeadmau5.github.io/react-floating-button-menu/)
 
-<img src="https://media.giphy.com/media/3o7bu7E67NHt6tOuKA/giphy.gif">
-
 ## Usage
 
 You can customize opening direction, speed, and styles of each button via props. Other options will be added soon
 ```javascript
-import { FloatingMenu, MainButton, ChildButton } from 'react-floating-button-menu/build';
+import {
+  FloatingMenu,
+  MainButton,
+  ChildButton,
+} from 'react-floating-button-menu';
 import MdAdd from 'react-icons/lib/md/add';
 import MdClose from 'react-icons/lib/md/close';
 
 ...
-  <FloatingMenu slideSpeed={500} direction="left" size={{ main: 56, child: 40 }}>
+  <FloatingMenu
+    slideSpeed={500}
+    direction="up"
+  >
     <MainButton
       iconResting={MdAdd}
       iconActive={MdClose}
       iconColor="white"
       backgroundColor="black"
+      size={56}
     />
     <ChildButton
       iconButton={MdAdd}
       iconColor="black"
-      order={1}
       backgroundColor="white"
+      size={56}
     />
     <ChildButton
       iconButton={MdAdd}
       iconColor="black"
-      order={2}
       backgroundColor="white"
+      size={56}
     />
   </FloatingMenu>
 ...
