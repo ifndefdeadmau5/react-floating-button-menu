@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import styledJss from 'styled-jss';
 
+const DIRECTIONS = {
+  up: 'column-reverse',
+  down: 'column',
+  left: 'row-reverse',
+  right: 'row',
+};
+
 const Container = styled.div`
   display: flex;
   box-sizing: border-box;
@@ -14,16 +21,15 @@ const Container = styled.div`
     box-sizing: inherit;
   }
 `;
-const StyledUl = styledJss('ul')({
-  position: 'absolute',
-  display: 'flex',
-  listStyle: 'none',
-  margin: '0',
-  padding: '0',
-},
-({ up }) => ({
-  flexDirection: up ? 'row-reverse' : 'column-reverse',
-}),
+const StyledUl = styledJss('ul')(
+  ({ direction }) => ({
+    position: 'absolute',
+    display: 'flex',
+    listStyle: 'none',
+    margin: '0',
+    padding: '0',
+    flexDirection: DIRECTIONS[direction],
+  }),
 );
 
 class FloatingMenu extends Component {
@@ -53,6 +59,7 @@ class FloatingMenu extends Component {
   render() {
     const { slideSpeed, direction } = this.props;
     const { isOpen } = this.state;
+    console.log(direction);
     const childrenWithProps = React.Children.map(this.props.children, child =>
       React.cloneElement(child, {
         isOpen,
@@ -63,7 +70,9 @@ class FloatingMenu extends Component {
 
     return (
       <Container {...this.props}>
-        <StyledUl onClick={this.toggleMenu} direction={direction}>{childrenWithProps}</StyledUl>
+        <StyledUl onClick={this.toggleMenu} direction={direction}>
+          {childrenWithProps}
+        </StyledUl>
       </Container>
     );
   }

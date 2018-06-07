@@ -30,9 +30,10 @@
     "webpack-dev-server": "^2.4.3"
   },
   "dependencies": {
+    "@material-ui/core": "^1.2.0",
     "prop-types": "^15.5.8",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.3.0",
     "react-hot-loader": "next",
     "react-icons": "^2.2.3",
     "styled-components": "1.4.5",

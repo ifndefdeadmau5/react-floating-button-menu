@@ -8,41 +8,72 @@ import {
   MainButton,
   ChildButton,
 } from 'react-floating-button-menu';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import Paper from '@material-ui/core/Paper';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
-const StyledFloatingMenu = styled(FloatingMenu)`
-  margin-right: 80px;
-  margin-bottom: 30px;
-`;
 
-const Contanier = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const SampleBox = styled.div`
-  display: flex;
-  background: #fafafa;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
-  width: 500px;
-  height: 300px;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-`;
+const styles = theme => ({
+  root: {
+  },
+  menu: {},
+  paper: {
+    width: '100%',
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2,
+  },
+});
 
 class App extends Component {
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+  }
   state = {
     isClicked: false,
+    direction: 'up',
+  };
+
+  handleChange = event => {
+    this.setState({ direction: event.target.value });
   };
 
   render() {
+    const { classes } = this.props;
+    const { direction } = this.state;
     return (
-      <Contanier>
+      <div className={classes.root}>
         <h2>Material Floating Button Menu Demo</h2>
-        <SampleBox>
-          <StyledFloatingMenu
+        <FormControl className={classes.formControl}>
+          <InputLabel htmlFor="age-simple">Age</InputLabel>
+          <Select
+            value={this.state.direction}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'direction',
+            }}
+          >
+            <MenuItem value={'up'}>Up</MenuItem>
+            <MenuItem value={'down'}>Down</MenuItem>
+            <MenuItem value={'left'}>Left</MenuItem>
+            <MenuItem value={'right'}>Right</MenuItem>
+          </Select>
+        </FormControl>
+        <Paper className={classes.paper} elevation={4}>
+          <FloatingMenu
+            className={classes.menu}
             slideSpeed={500}
-            direction="right"
+            direction={direction}
           >
             <MainButton
               iconResting={MdAdd}
@@ -65,11 +96,11 @@ class App extends Component {
               backgroundColor="white"
               size={56}
             />
-          </StyledFloatingMenu>
-        </SampleBox>
-      </Contanier>
+          </FloatingMenu>
+        </Paper>
+      </div>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
