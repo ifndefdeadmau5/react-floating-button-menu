@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styledJss from 'styled-jss';
 
-const DIRECTIONS = {
+export const DIRECTIONS = {
   up: 'column-reverse',
   down: 'column',
   left: 'row-reverse',

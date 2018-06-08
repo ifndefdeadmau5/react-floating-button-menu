@@ -3,8 +3,7 @@ import styled from 'styled-jss';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled('li')(
-  ({ isOpen, slideSpeed, backgroundColor, size, iconColor, margin }) => ({
-    margin,
+  ({ isOpen, slideSpeed, backgroundColor, size, iconColor, margin, direction }) => ({
     backgroundColor,
     display: 'flex',
     border: 'none',
@@ -21,37 +20,20 @@ const Wrapper = styled('li')(
     transition: `all ${slideSpeed}ms`,
     width: size,
     height: size,
+    marginTop: (direction === 'down') ? margin : 0,
+    marginBottom: (direction === 'up') ? margin : 0,
+    marginLeft: (direction === 'right') ? margin : 0,
+    marginRight: (direction === 'left') ? margin : 0,
     '& > a > svg': {
       fill: iconColor,
     },
   }),
 );
-// ${
-// (props) => {
-//   switch (props.direction) {
-//     // TODO: Do not fix the transform value to 60, calculate it based on given buttonSize.
-//     case 'left':
-//       return `transform: translate(${props.isOpen ? props.order * 60 * -1 : 0}px, 0px);`;
-//     case 'right':
-//       return `transform: translate(${props.isOpen ? props.order * 60 : 0}px, 0px);`;
-//     case 'up':
-//       return `transform: translate(0px, ${props.isOpen ? props.order * 60 * -1 : 0}px);`;
-//     case 'down':
-//       return `transform: translate(0px, ${props.isOpen ? props.order * 60 * 1 : 0}px);`;
-//     default:
-//       return `transform: translate(0px, ${props.isOpen ? props.order * 60 * 1 : 0}px);`;
-//   }
-// }
-// }
-// ${
-//   props => ((props.direction === 'left' || props.direction === 'right') ?
-//     css`margin-top: ${(props.size.main - props.size.child) / 2}px` :
-//     css`margin-left: ${(props.size.main - props.size.child) / 2}px`)
-// }
 
 class ChildButton extends Component {
   static propTypes = {
     iconButton: PropTypes.func.isRequired,
+    direction: PropTypes.string.isRequired,
     iconColor: PropTypes.string,
     isOpen: PropTypes.bool,
     size: PropTypes.number,
@@ -66,8 +48,7 @@ class ChildButton extends Component {
   };
 
   render() {
-    const { iconButton, ...other } = this.props;
-    const IconButton = iconButton;
+    const { iconButton: IconButton, ...other } = this.props;
 
     return (
       <Wrapper {...other}>

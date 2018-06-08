@@ -97,6 +97,7 @@ class App extends Component {
               order={1}
               backgroundColor="white"
               size={40}
+              margin={16}
             />
             <ChildButton
               iconButton={MdAdd}
@@ -104,6 +105,7 @@ class App extends Component {
               order={2}
               backgroundColor="white"
               size={40}
+              margin={8}
             />
           </FloatingMenu>
         </Paper>
