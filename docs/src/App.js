@@ -98,6 +98,7 @@ class App extends Component {
               backgroundColor="white"
               size={40}
               margin={16}
+              onClick={() => console.log('First button clicked')}
             />
             <ChildButton
               iconButton={MdAdd}
