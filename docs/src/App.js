@@ -27,9 +27,6 @@ const styles = theme => ({
     width: '100%',
     height: '100vh',
   },
-  menu: {
-    margin: 'auto',
-  },
   paper: {
     width: '100%',
     maxWidth: 960,
@@ -37,6 +34,7 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   formControl: {
     margin: theme.spacing.unit,
@@ -83,7 +81,6 @@ class App extends Component {
         </FormControl>
         <Paper className={classes.paper} elevation={4}>
           <FloatingMenu
-            className={classes.menu}
             slideSpeed={500}
             direction={direction}
           >
@@ -99,14 +96,14 @@ class App extends Component {
               iconColor="black"
               order={1}
               backgroundColor="white"
-              size={56}
+              size={40}
             />
             <ChildButton
               iconButton={MdAdd}
               iconColor="black"
               order={2}
               backgroundColor="white"
-              size={56}
+              size={40}
             />
           </FloatingMenu>
         </Paper>

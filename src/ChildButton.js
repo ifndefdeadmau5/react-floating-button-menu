@@ -3,7 +3,9 @@ import styled from 'styled-jss';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled('li')(
-  ({ isOpen, slideSpeed, backgroundColor, size, iconColor }) => ({
+  ({ isOpen, slideSpeed, backgroundColor, size, iconColor, margin }) => ({
+    margin,
+    backgroundColor,
     display: 'flex',
     border: 'none',
     borderRadius: '50%',
@@ -17,7 +19,6 @@ const Wrapper = styled('li')(
     alignItems: 'center',
     opacity: isOpen ? 1 : 0,
     transition: `all ${slideSpeed}ms`,
-    backgroundColor,
     width: size,
     height: size,
     '& > a > svg': {
@@ -53,19 +54,14 @@ class ChildButton extends Component {
     iconButton: PropTypes.func.isRequired,
     iconColor: PropTypes.string,
     isOpen: PropTypes.bool,
-    direction: PropTypes.string,
-    offset: PropTypes.number,
     size: PropTypes.number,
+    margin: PropTypes.number,
   };
 
   static defaultProps = {
-    direction: 'down',
     iconColor: 'black',
-    offset: 0,
-    size: {
-      main: 56,
-      child: 56,
-    },
+    size: '40',
+    margin: 0,
     isOpen: false,
   };
 

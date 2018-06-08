@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import styledJss from 'styled-jss';
 
 const DIRECTIONS = {
@@ -18,6 +17,11 @@ const StyledUl = styledJss('ul')(
     margin: '0',
     padding: '0',
     flexDirection: DIRECTIONS[direction],
+    justifyContent: 'center',
+    alignItems: 'center',
+    '& > a + li, li + li': {
+      marginLeft: 8,
+    },
   }),
 );
 
@@ -31,7 +35,6 @@ class FloatingMenu extends Component {
 
   static defaultProps = {
     className: '',
-    background: 'palevioletred',
     slideSpeed: 500,
     direction: 'down',
   };

@@ -4,7 +4,10 @@ import styled from 'styled-jss';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled('a')(
-  ({ backgroundColor, size }) => ({
+  ({ backgroundColor, size, iconColor }) => ({
+    '& > a > svg': {
+      fill: iconColor,
+    },
     zIndex: '1',
     display: 'flex',
     border: 'none',
