@@ -23,12 +23,20 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'column',
     width: '100%',
     height: '100vh',
   },
-  menu: {},
+  menu: {
+    margin: 'auto',
+  },
   paper: {
     width: '100%',
+    maxWidth: 960,
+    minHeight: 300,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   formControl: {
     margin: theme.spacing.unit,
