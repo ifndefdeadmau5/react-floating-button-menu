@@ -35,6 +35,7 @@ class ChildButton extends Component {
     iconButton: PropTypes.func.isRequired,
     direction: PropTypes.string.isRequired,
     iconColor: PropTypes.string,
+    onClick: PropTypes.func,
     isOpen: PropTypes.bool,
     size: PropTypes.number,
     margin: PropTypes.number,
@@ -45,13 +46,14 @@ class ChildButton extends Component {
     size: '40',
     margin: 0,
     isOpen: false,
+    onClick: null
   };
 
   render() {
     const { iconButton: IconButton, ...other } = this.props;
 
     return (
-      <Wrapper {...other}>
+      <Wrapper {...other} onClick={this.props.isOpen ? this.props.onClick : null}>
         <a>
           <IconButton />
         </a>

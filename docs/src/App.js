@@ -50,8 +50,8 @@ class App extends Component {
     classes: PropTypes.object.isRequired,
   }
   state = {
-    isClicked: false,
     direction: 'up',
+    isOpen: false,
   };
 
   handleChange = event => {
@@ -60,7 +60,7 @@ class App extends Component {
 
   render() {
     const { classes } = this.props;
-    const { direction } = this.state;
+    const { direction, isOpen } = this.state;
     return (
       <div className={classes.root}>
         <h2>Material Floating Button Menu Demo</h2>
@@ -83,12 +83,14 @@ class App extends Component {
           <FloatingMenu
             slideSpeed={500}
             direction={direction}
+            isOpen={isOpen}
           >
             <MainButton
               iconResting={MdAdd}
               iconActive={MdClose}
               iconColor="white"
               backgroundColor="black"
+              onClick={() => this.setState({ isOpen: !this.state.isOpen })}
               size={56}
             />
             <ChildButton

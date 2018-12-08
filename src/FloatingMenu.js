@@ -31,28 +31,18 @@ class FloatingMenu extends Component {
     children: PropTypes.arrayOf(PropTypes.element).isRequired,
     slideSpeed: PropTypes.number,
     direction: PropTypes.string,
+    isOpen: PropTypes.bool,
   };
 
   static defaultProps = {
     className: '',
     slideSpeed: 500,
     direction: 'down',
-  };
-
-  state = {
     isOpen: false,
   };
 
-  toggleMenu = (event) => {
-    event.preventDefault();
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  };
-
   render() {
-    const { slideSpeed, direction, className } = this.props;
-    const { isOpen } = this.state;
+    const { slideSpeed, direction, className, isOpen } = this.props;
     const childrenWithProps = React.Children.map(this.props.children, child =>
       React.cloneElement(child, {
         isOpen,
