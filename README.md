@@ -24,10 +24,15 @@ import {
 import MdAdd from 'react-icons/lib/md/add';
 import MdClose from 'react-icons/lib/md/close';
 
+
+state = {
+  isOpen: false,
+}
 ...
   <FloatingMenu
     slideSpeed={500}
     direction="up"
+    isOpen={this.state.isOpen}
   >
     <MainButton
       iconResting={MdAdd}
@@ -35,6 +40,7 @@ import MdClose from 'react-icons/lib/md/close';
       iconColor="white"
       backgroundColor="black"
       size={56}
+      onClick={() => this.setState({ isOpen: !this.state.isOpen })}
     />
     <ChildButton
       iconButton={MdAdd}
