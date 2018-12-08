@@ -4,6 +4,12 @@ A Material floating button menu
 
 Inspired by [react-material-floating-button](https://github.com/nobitagit/react-material-floating-button)
 
+## TODO
+
+- [ ] Add sliding trasition (WIP)
+- [ ] Remove pointer cursor when ChildButton is not visible
+- [ ] You suggest!
+
 ## Installation
 
 > npm install react-floating-button-menu --save
