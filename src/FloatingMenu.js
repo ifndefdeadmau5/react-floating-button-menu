@@ -19,9 +19,6 @@ const StyledUl = styledJss('ul')(
     flexDirection: DIRECTIONS[direction],
     justifyContent: 'center',
     alignItems: 'center',
-    '& > a + li, li + li': {
-      marginLeft: 8,
-    },
   }),
 );
 
@@ -30,6 +27,7 @@ class FloatingMenu extends Component {
     className: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.element).isRequired,
     slideSpeed: PropTypes.number,
+    spacing: PropTypes.number,
     direction: PropTypes.string,
     isOpen: PropTypes.bool,
   };
@@ -39,15 +37,18 @@ class FloatingMenu extends Component {
     slideSpeed: 500,
     direction: 'down',
     isOpen: false,
+    spacing: 8,
   };
 
   render() {
-    const { slideSpeed, direction, className, isOpen } = this.props;
-    const childrenWithProps = React.Children.map(this.props.children, child =>
+    const { slideSpeed, direction, className, isOpen, spacing } = this.props;
+    const childrenWithProps = React.Children.map(this.props.children, (child, index) =>
       React.cloneElement(child, {
         isOpen,
         slideSpeed,
         direction,
+        index,
+        spacing,
       }),
     );
 

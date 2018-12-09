@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 
 const Wrapper = styled('a')(
   ({ backgroundColor, size, iconColor }) => ({
-    '& > a > svg': {
-      fill: iconColor,
-    },
+    color: iconColor,
     zIndex: '1',
     display: 'flex',
     border: 'none',
@@ -18,7 +16,6 @@ const Wrapper = styled('a')(
     padding: '0',
     WebkitUserDrag: 'none',
     fontWeight: 'bold',
-    color: '#f1f1f1',
     justifyContent: 'center',
     alignItems: 'center',
     WebkitTransition: '-webkit-transform 300ms',
@@ -32,41 +29,37 @@ const Wrapper = styled('a')(
     transform: `rotate(${isOpen ? 180 : 0}deg)`,
   }),
 );
-const IconResting = ({ iconResting, isOpen }) =>
-  styled(iconResting)({
-    position: 'absolute',
-    opacity: isOpen ? 0 : 1,
-  });
-const IconActive = ({ iconActive, isOpen }) =>
-  styled(iconActive)({
-    position: 'absolute',
-    opacity: isOpen ? 1 : 0,
-  });
+
+const IconWrapper = styled('div')(({ isOpen }) => ({
+  display: 'flex',
+  position: 'absolute',
+  opacity: isOpen ? 1 : 0,
+}));
 
 class MainButton extends Component {
   static propTypes = {
-    iconResting: PropTypes.func.isRequired,
-    iconActive: PropTypes.func.isRequired,
-    iconColor: PropTypes.string,
+    iconResting: PropTypes.node.isRequired,
+    iconActive: PropTypes.node.isRequired,
     isOpen: PropTypes.bool,
     size: PropTypes.number,
   };
 
   static defaultProps = {
-    iconColor: '#ff1744',
     isOpen: false,
     size: 56,
   };
 
   render() {
     const { iconResting, iconActive, isOpen } = this.props;
-    const StyledIconResting = IconResting({ iconResting, isOpen });
-    const StyledIconActive = IconActive({ iconActive, isOpen });
 
     return (
       <Wrapper {...this.props}>
-        <StyledIconResting />
-        <StyledIconActive />
+        <IconWrapper isOpen={!isOpen}>
+          {iconResting}
+        </IconWrapper>
+        <IconWrapper isOpen={isOpen}>
+          {iconActive}
+        </IconWrapper>
       </Wrapper>
     );
   }

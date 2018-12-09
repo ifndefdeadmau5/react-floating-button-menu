@@ -1,9 +1,10 @@
+/* eslint-disable no-nested-ternary  */
 import React, { Component } from 'react';
 import styled from 'styled-jss';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled('li')(
-  ({ isOpen, slideSpeed, backgroundColor, size, iconColor, margin, direction }) => ({
+  ({ isOpen, slideSpeed, backgroundColor, size, iconColor, spacing, direction }) => ({
     backgroundColor,
     display: 'flex',
     border: 'none',
@@ -20,43 +21,61 @@ const Wrapper = styled('li')(
     transition: `all ${slideSpeed}ms`,
     width: size,
     height: size,
-    marginTop: (direction === 'down') ? margin : 0,
-    marginBottom: (direction === 'up') ? margin : 0,
-    marginLeft: (direction === 'right') ? margin : 0,
-    marginRight: (direction === 'left') ? margin : 0,
-    '& > a > svg': {
-      fill: iconColor,
-    },
+    marginTop: direction === 'down' ? spacing : 0,
+    marginBottom: direction === 'up' ? spacing : 0,
+    marginLeft: direction === 'right' ? spacing : 0,
+    marginRight: direction === 'left' ? spacing : 0,
+    color: iconColor,
   }),
 );
 
 class ChildButton extends Component {
   static propTypes = {
-    iconButton: PropTypes.func.isRequired,
-    direction: PropTypes.string.isRequired,
-    iconColor: PropTypes.string,
+    icon: PropTypes.node.isRequired,
+    direction: PropTypes.string,
+    index: PropTypes.number,
     onClick: PropTypes.func,
     isOpen: PropTypes.bool,
     size: PropTypes.number,
-    margin: PropTypes.number,
+    spacing: PropTypes.number,
   };
 
   static defaultProps = {
+    direction: 'up',
+    index: 1,
     iconColor: 'black',
     size: '40',
-    margin: 0,
+    spacing: 0,
     isOpen: false,
-    onClick: null
+    onClick: null,
   };
 
   render() {
-    const { iconButton: IconButton, ...other } = this.props;
+    const {
+      icon,
+      index,
+      direction,
+      size,
+      spacing,
+      isOpen,
+      onClick,
+    } = this.props;
+    const offsetX =
+      direction === 'right' ? (size + spacing) * index :
+      direction === 'left' ? (size + spacing) * index * -1 : 0;
+    const offsetY =
+      direction === 'down' ? (size + spacing) * index :
+      direction === 'up' ? (size + spacing) * index * -1 : 0;
 
     return (
-      <Wrapper {...other} onClick={this.props.isOpen ? this.props.onClick : null}>
-        <a>
-          <IconButton />
-        </a>
+      <Wrapper
+        {...this.props}
+        onClick={isOpen ? onClick : null}
+        style={{
+          transform: `translate(${isOpen ? 0 : -offsetX}px, ${isOpen ? 0 : -offsetY}px)`,
+        }}
+      >
+        {icon}
       </Wrapper>
     );
   }

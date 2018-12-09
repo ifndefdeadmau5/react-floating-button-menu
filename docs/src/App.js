@@ -1,20 +1,13 @@
-/* eslint-disable */
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import MdAdd from 'react-icons/lib/md/add';
-import MdClose from 'react-icons/lib/md/close';
-import {
-  FloatingMenu,
-  MainButton,
-  ChildButton,
-} from 'react-floating-button-menu';
+import MdAdd from '@material-ui/icons/add';
+import MdClose from '@material-ui/icons/clear';
+import MdFavorite from '@material-ui/icons/favorite';
+import { FloatingMenu, MainButton, ChildButton } from 'react-floating-button-menu';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
 import Paper from '@material-ui/core/Paper';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
@@ -48,13 +41,13 @@ const styles = theme => ({
 class App extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-  }
+  };
   state = {
     direction: 'up',
     isOpen: false,
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ direction: event.target.value });
   };
 
@@ -65,7 +58,7 @@ class App extends Component {
       <div className={classes.root}>
         <h2>Material Floating Button Menu Demo</h2>
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="age-simple">Age</InputLabel>
+          <InputLabel>Direction</InputLabel>
           <Select
             value={this.state.direction}
             onChange={this.handleChange}
@@ -80,35 +73,29 @@ class App extends Component {
           </Select>
         </FormControl>
         <Paper className={classes.paper} elevation={4}>
-          <FloatingMenu
-            slideSpeed={500}
-            direction={direction}
-            isOpen={isOpen}
-          >
+          <FloatingMenu slideSpeed={500} direction={direction} isOpen={isOpen} spacing={8}>
             <MainButton
-              iconResting={MdAdd}
-              iconActive={MdClose}
-              iconColor="white"
+              iconResting={<MdAdd style={{ fontSize: 20 }} nativeColor="white" />}
+              iconActive={<MdClose style={{ fontSize: 20 }} nativeColor="white" />}
               backgroundColor="black"
               onClick={() => this.setState({ isOpen: !this.state.isOpen })}
               size={56}
             />
             <ChildButton
-              iconButton={MdAdd}
-              iconColor="black"
-              order={1}
+              icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
               backgroundColor="white"
               size={40}
-              margin={16}
               onClick={() => console.log('First button clicked')}
             />
             <ChildButton
-              iconButton={MdAdd}
-              iconColor="black"
-              order={2}
+              icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
               backgroundColor="white"
               size={40}
-              margin={8}
+            />
+            <ChildButton
+              icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
+              backgroundColor="white"
+              size={40}
             />
           </FloatingMenu>
         </Paper>
