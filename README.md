@@ -6,8 +6,8 @@ Inspired by [react-material-floating-button](https://github.com/nobitagit/react-
 
 ## TODO
 
-- [ ] Add sliding trasition (WIP)
-- [ ] Remove pointer cursor when ChildButton is not visible
+- [x] Add sliding trasition (WIP)
+- [x] Remove pointer cursor when ChildButton is not visible
 - [ ] Only rotate icon not whole button
 - [ ] You suggest!
 
@@ -28,8 +28,8 @@ import {
   MainButton,
   ChildButton,
 } from 'react-floating-button-menu';
-import MdAdd from 'react-icons/lib/md/add';
-import MdClose from 'react-icons/lib/md/close';
+import MdAdd from '@material-ui/icons/add';
+import MdClose from '@material-ui/icons/clear';
 
 
 state = {
@@ -39,27 +39,31 @@ state = {
   <FloatingMenu
     slideSpeed={500}
     direction="up"
+    spacing={8}
     isOpen={this.state.isOpen}
   >
     <MainButton
-      iconResting={MdAdd}
-      iconActive={MdClose}
-      iconColor="white"
+      iconResting={<MdAdd style={{ fontSize: 20 }} nativeColor="white" />}
+      iconActive={<MdClose style={{ fontSize: 20 }} nativeColor="white" />}
       backgroundColor="black"
-      size={56}
       onClick={() => this.setState({ isOpen: !this.state.isOpen })}
-    />
-    <ChildButton
-      iconButton={MdAdd}
-      iconColor="black"
-      backgroundColor="white"
       size={56}
     />
-    <ChildButton
-      iconButton={MdAdd}
-      iconColor="black"
+     <ChildButton
+      icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
       backgroundColor="white"
-      size={56}
+      size={40}
+      onClick={() => console.log('First button clicked')}
+    />
+    <ChildButton
+      icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
+      backgroundColor="white"
+      size={40}
+    />
+    <ChildButton
+      icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
+      backgroundColor="white"
+      size={40}
     />
   </FloatingMenu>
 ...
