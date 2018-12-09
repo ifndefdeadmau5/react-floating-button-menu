@@ -30,10 +30,9 @@ const Wrapper = styled('a')(
   }),
 );
 
-const IconWrapper = styled('div')(({ isOpen }) => ({
+const IconWrapper = styled('div')(({
   display: 'flex',
   position: 'absolute',
-  opacity: isOpen ? 1 : 0,
 }));
 
 class MainButton extends Component {
@@ -54,11 +53,8 @@ class MainButton extends Component {
 
     return (
       <Wrapper {...this.props}>
-        <IconWrapper isOpen={!isOpen}>
-          {iconResting}
-        </IconWrapper>
-        <IconWrapper isOpen={isOpen}>
-          {iconActive}
+        <IconWrapper>
+          {isOpen ? iconActive : iconResting}
         </IconWrapper>
       </Wrapper>
     );
