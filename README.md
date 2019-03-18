@@ -80,4 +80,4 @@ npm start
 ```
 
 ## Contributing
-Please submit issues.
+Any issues or PRs are welcome
