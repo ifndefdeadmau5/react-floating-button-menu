@@ -1,6 +1,6 @@
 {
   "name": "react-floating-button-menu",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Customizable Material floating button menu implementation made with styled-component & react",
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -22,7 +22,7 @@
     "pretty-bytes": "^4.0.2",
     "react-hot-loader": "^4.0.0",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.3"
+    "webpack-dev-server": "^3.1.14"
   },
   "peerDependencies": {
     "react": "^16"

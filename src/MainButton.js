@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 const Wrapper = styled('a')(({ backgroundColor, size, iconColor }) => ({
   color: iconColor,
-  zIndex: '1',
   display: 'flex',
   border: 'none',
   borderRadius: '50%',

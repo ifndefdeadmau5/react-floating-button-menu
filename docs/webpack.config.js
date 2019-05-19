@@ -36,7 +36,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader?modules'],
+        loader: 'style-loader!css-loader?sourceMap',
       },
     ],
   },
