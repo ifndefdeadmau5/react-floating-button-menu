@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-jss';
 import PropTypes from 'prop-types';
 
-const Wrapper = styled('a')(({ backgroundColor, size, iconColor }) => ({
+const Wrapper = styled('a')(({ background, size, iconColor }) => ({
   color: iconColor,
   display: 'flex',
   border: 'none',
@@ -18,7 +18,7 @@ const Wrapper = styled('a')(({ backgroundColor, size, iconColor }) => ({
   alignItems: 'center',
   width: size,
   height: size,
-  backgroundColor,
+  background,
 }));
 
 const IconWrapper = styled('div')(({ isOpen }) => ({

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import MdAdd from '@material-ui/icons/add';
-import MdClose from '@material-ui/icons/clear';
-import MdFavorite from '@material-ui/icons/favorite';
 import { FloatingMenu, MainButton, ChildButton } from 'react-floating-button-menu';
+import MdAdd from '@material-ui/icons/Add';
+import MdClose from '@material-ui/icons/Clear';
+import MdEdit from '@material-ui/icons/Edit';
+import MdStar from '@material-ui/icons/Star';
+import MdFavorite from '@material-ui/icons/Favorite';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -10,6 +12,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import './App.css';
 
 const styles = theme => ({
   root: {
@@ -19,6 +22,7 @@ const styles = theme => ({
     flexDirection: 'column',
     width: '100%',
     height: '100vh',
+    color: '#fff',
   },
   paper: {
     width: '100%',
@@ -37,6 +41,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 2,
   },
 });
+
 
 class App extends Component {
   static propTypes = {
@@ -77,24 +82,24 @@ class App extends Component {
             <MainButton
               iconResting={<MdAdd style={{ fontSize: 20 }} nativeColor="white" />}
               iconActive={<MdClose style={{ fontSize: 20 }} nativeColor="white" />}
-              backgroundColor="black"
+              background="linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"
               onClick={() => this.setState({ isOpen: !this.state.isOpen })}
               size={56}
             />
             <ChildButton
-              icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
-              backgroundColor="white"
+              icon={<MdEdit style={{ fontSize: 20 }} nativeColor="white" />}
+              background="linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"
               size={40}
               onClick={() => console.log('First button clicked')}
             />
             <ChildButton
-              icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
-              backgroundColor="white"
+              icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="white" />}
+              background="linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"
               size={40}
             />
             <ChildButton
-              icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
-              backgroundColor="white"
+              icon={<MdStar style={{ fontSize: 20 }} nativeColor="white" />}
+              background="linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"
               size={40}
             />
           </FloatingMenu>

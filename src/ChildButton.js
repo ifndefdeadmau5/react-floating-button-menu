@@ -4,8 +4,8 @@ import styled from 'styled-jss';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled('li')(
-  ({ isOpen, slideSpeed, backgroundColor, size, iconColor, spacing, direction }) => ({
-    backgroundColor,
+  ({ isOpen, slideSpeed, background, size, iconColor, spacing, direction }) => ({
+    background,
     display: 'flex',
     border: 'none',
     borderRadius: '50%',
