@@ -26,6 +26,7 @@ const Wrapper = styled('li')(
     marginLeft: direction === 'right' ? spacing : 0,
     marginRight: direction === 'left' ? spacing : 0,
     color: iconColor,
+    pointerEvents: isOpen ? 'auto' : 'none',
   }),
 );
 
