@@ -83,7 +83,10 @@ class App extends Component {
               iconResting={<MdAdd style={{ fontSize: 20 }} nativeColor="white" />}
               iconActive={<MdClose style={{ fontSize: 20 }} nativeColor="white" />}
               background="linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"
-              onClick={() => this.setState({ isOpen: !this.state.isOpen })}
+              onClick={() => {
+                this.setState({ isOpen: !this.state.isOpen });
+                console.log('clicked');
+              }}
               size={56}
             />
             <ChildButton

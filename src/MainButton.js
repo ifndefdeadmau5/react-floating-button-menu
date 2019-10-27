@@ -1,10 +1,9 @@
 /* eslint-disable react/no-unused-prop-types */
-import React, { Component } from 'react';
-import styled from 'styled-jss';
+import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Wrapper = styled('a')(({ background, size, iconColor }) => ({
-  color: iconColor,
+const Wrapper = styled('a')(({ background, size }) => ({
   display: 'flex',
   border: 'none',
   borderRadius: '50%',
@@ -30,28 +29,26 @@ const IconWrapper = styled('div')(({ isOpen }) => ({
   transform: `rotate(${isOpen ? 180 : 0}deg)`,
 }));
 
-class MainButton extends Component {
-  static propTypes = {
-    iconResting: PropTypes.node.isRequired,
-    iconActive: PropTypes.node.isRequired,
-    isOpen: PropTypes.bool,
-    size: PropTypes.number,
-  };
+const MainButton = ({ iconResting, iconActive, isOpen, ...rest }) => {
+  return (
+    <Wrapper {...rest}>
+      <IconWrapper isOpen={isOpen}>
+        {isOpen ? iconActive : iconResting}
+      </IconWrapper>
+    </Wrapper>
+  );
+};
 
-  static defaultProps = {
-    isOpen: false,
-    size: 56,
-  };
+MainButton.propTypes = {
+  iconResting: PropTypes.node.isRequired,
+  iconActive: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool,
+  size: PropTypes.number,
+};
 
-  render() {
-    const { iconResting, iconActive, isOpen } = this.props;
-
-    return (
-      <Wrapper {...this.props}>
-        <IconWrapper isOpen={isOpen}>{isOpen ? iconActive : iconResting}</IconWrapper>
-      </Wrapper>
-    );
-  }
-}
+MainButton.defaultProps = {
+  isOpen: false,
+  size: 56,
+};
 
 export default MainButton;
