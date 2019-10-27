@@ -9,6 +9,7 @@ Inspired by [react-material-floating-button](https://github.com/nobitagit/react-
 - [x] Add sliding trasition (WIP)
 - [x] Remove pointer cursor when ChildButton is not visible
 - [x] Only rotate icon not whole button
+- [ ] Get away from JSS to pure CSS or whatever light to reduce horrible bundle size 😱
 - [ ] You suggest!
 
 ## Installation
