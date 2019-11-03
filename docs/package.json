@@ -40,7 +40,7 @@
     "jss-preset-default": "^4.5.0",
     "prop-types": "^15.5.8",
     "react": "^16.4.0",
-    "react-dom": "^16.3.0",
+    "react-dom": "^16.4.2",
     "react-jss": "^8.4.0",
     "styled-components": "1.4.5",
     "yargs": "^8.0.1"
