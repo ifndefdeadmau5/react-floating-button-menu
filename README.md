@@ -4,14 +4,6 @@ A Material floating button menu
 
 Inspired by [react-material-floating-button](https://github.com/nobitagit/react-material-floating-button)
 
-## TODO
-
-- [x] Add sliding trasition (WIP)
-- [x] Remove pointer cursor when ChildButton is not visible
-- [x] Only rotate icon not whole button
-- [x] Get away from JSS to pure CSS or whatever light to reduce horrible bundle size 😱
-- [ ] You suggest!
-
 ## Installation
 
 > npm install react-floating-button-menu --save
