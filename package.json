@@ -3,12 +3,12 @@
   "version": "2.0.6",
   "description": "A Customizable Material floating button menu implementation made with styled-component & react",
   "devDependencies": {
-    "babel-core": "^6.24.1",
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.7.4",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -21,9 +21,9 @@
     "in-publish": "^2.0.0",
     "pretty-bytes": "^4.0.2",
     "react-hot-loader": "^4.0.0",
+    "styled-components": "^4.4.0",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^3.1.14",
-    "styled-components": "^4.4.0"
+    "webpack-dev-server": "^3.1.14"
   },
   "peerDependencies": {
     "styled-components": ">= 3",
@@ -33,12 +33,12 @@
     "prop-types": "^15.5.8",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "yargs": "^8.0.1"
+    "yargs": "^15.0.2"
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "babel-node ./tools/build.js",
-    "prepublish": "babel-node ./tools/build.js"
+    "build": "babel ./tools/build.js",
+    "prepublish": "babel ./tools/build.js"
   },
   "main": "index.js",
   "module": "es/index.js",
