@@ -5,6 +5,10 @@ module.exports = {
     library: 'reactFloatingButtonMenu',
     libraryTarget: 'umd',
   },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: ['.ts', '.tsx', '.js'],
+  },
   module: {
     rules: [
       {
@@ -12,6 +16,7 @@ module.exports = {
         use: ['babel-loader'],
         exclude: /node_modules/,
       },
+      { test: /\.tsx?$/, loader: 'ts-loader' },
     ],
   },
   externals: {
@@ -30,7 +35,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development',
+        process.env.NODE_ENV || 'development'
       ),
     }),
   ],

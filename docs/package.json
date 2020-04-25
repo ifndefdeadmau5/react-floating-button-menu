@@ -46,6 +46,8 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.2",
     "react-jss": "^8.4.0",
-    "styled-components": "1.4.5"
+    "styled-components": "1.4.5",
+    "ts-loader": "^7.0.1",
+    "typescript": "^3.8.3"
   }
 }

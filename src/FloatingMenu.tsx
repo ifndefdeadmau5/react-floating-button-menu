@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styledJss from 'styled-components';
+import styled from 'styled-components';
 
 export const DIRECTIONS = {
   up: 'column-reverse',
@@ -9,7 +8,7 @@ export const DIRECTIONS = {
   right: 'row',
 };
 
-const StyledUl = styledJss('ul')(({ direction }) => ({
+const StyledUl = styled('ul')(({ direction }) => ({
   display: 'flex',
   width: 'fit-content',
   listStyle: 'none',
@@ -20,6 +19,15 @@ const StyledUl = styledJss('ul')(({ direction }) => ({
   alignItems: 'center',
 }));
 
+interface Props {
+  className: string;
+  children: JSX.Element[] | JSX.Element | string;
+  spacing: number;
+  slideSpeed: number;
+  direction: 'up' | 'down' | 'left' | 'right';
+  isOpen: boolean;
+}
+
 const FloatingMenu = ({
   slideSpeed = 500,
   direction = 'down',
@@ -28,37 +36,24 @@ const FloatingMenu = ({
   spacing = 8,
   children,
   ...rest
-}) => {
+}: Props) => {
   const childrenWithProps = React.Children.map(
     children,
-    (child, index) =>
+    (child: any, index: number) =>
       React.cloneElement(child, {
         isOpen,
         slideSpeed,
         direction,
         index,
         spacing,
-      }),
+      })
   );
 
   return (
-    <StyledUl
-      className={className}
-      direction={direction}
-      {...rest}
-    >
+    <StyledUl className={className} direction={direction} {...rest}>
       {childrenWithProps}
     </StyledUl>
   );
-};
-
-FloatingMenu.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  slideSpeed: PropTypes.number,
-  spacing: PropTypes.number,
-  direction: PropTypes.string,
-  isOpen: PropTypes.bool,
 };
 
 export default FloatingMenu;
