@@ -22,7 +22,7 @@ const Wrapper = styled('a')(({ background, size }) => ({
 
 const IconWrapper = styled('div')(({ isOpen }) => ({
   display: 'flex',
-  position: 'absolute',
+  textDecoration: 'none',
   WebkitTransition: '-webkit-transform 300ms',
   transition: 'transform 300ms',
   WebkitTransform: `rotate(${isOpen ? 180 : 0}deg)`,
