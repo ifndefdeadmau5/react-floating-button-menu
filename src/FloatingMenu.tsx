@@ -1,42 +1,50 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 export const DIRECTIONS = {
   up: 'column-reverse',
   down: 'column',
   left: 'row-reverse',
-  right: 'row',
-};
+  right: 'row'
+}
 
-const StyledUl = styled('ul')(({ direction }) => ({
-  display: 'flex',
-  width: 'fit-content',
-  listStyle: 'none',
-  margin: '0',
-  padding: '0',
-  flexDirection: DIRECTIONS[direction],
-  justifyContent: 'center',
-  alignItems: 'center',
-}));
+// @ts-ignore
+const StyledUl = styled(({ direction, ...rest }) => <ul {...rest} />)(
+  ({ direction }: any) => ({
+    display: 'flex',
+    width: 'fit-content',
+    listStyle: 'none',
+    margin: '0',
+    padding: '0',
+    flexDirection: DIRECTIONS[direction],
+    justifyContent: 'center',
+    alignItems: 'center'
+  })
+)
 
-interface Props {
-  className: string;
-  children: JSX.Element[] | JSX.Element | string;
-  spacing: number;
-  slideSpeed: number;
-  direction: 'up' | 'down' | 'left' | 'right';
-  isOpen: boolean;
+export enum Directions {
+  Up = 'up',
+  Down = 'down',
+  Left = 'left',
+  Right = 'right'
+}
+
+export interface FloatingMenuProps {
+  children: JSX.Element[] | JSX.Element | string
+  spacing?: number
+  slideSpeed?: number
+  direction?: Directions
+  isOpen: boolean
 }
 
 const FloatingMenu = ({
   slideSpeed = 500,
-  direction = 'down',
-  className,
+  direction = Directions.Down,
   isOpen = false,
   spacing = 8,
   children,
   ...rest
-}: Props) => {
+}: FloatingMenuProps) => {
   const childrenWithProps = React.Children.map(
     children,
     (child: any, index: number) =>
@@ -45,15 +53,15 @@ const FloatingMenu = ({
         slideSpeed,
         direction,
         index,
-        spacing,
+        spacing
       })
-  );
+  )
 
   return (
-    <StyledUl className={className} direction={direction} {...rest}>
+    <StyledUl direction={direction} {...rest}>
       {childrenWithProps}
     </StyledUl>
-  );
-};
+  )
+}
 
-export default FloatingMenu;
+export default FloatingMenu

@@ -1,17 +1,16 @@
 /* eslint-disable no-nested-ternary  */
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from 'react'
+import styled from 'styled-components'
+import { Directions } from './FloatingMenu'
 
-const Wrapper = styled('li')(
-  ({
-    isOpen,
-    slideSpeed,
-    background,
-    size,
-    spacing,
-    direction,
-  }) => ({
+// @ts-ignore
+const Wrapper = styled(
+  ({ isOpen, slideSpeed, background, size, spacing, direction, ...rest }) => (
+    <li {...rest} />
+  )
+)(
+  // @ts-ignore
+  ({ isOpen, slideSpeed, background, size, spacing, direction }: any) => ({
     background,
     display: 'flex',
     border: 'none',
@@ -32,32 +31,43 @@ const Wrapper = styled('li')(
     marginBottom: direction === 'up' ? spacing : 0,
     marginLeft: direction === 'right' ? spacing : 0,
     marginRight: direction === 'left' ? spacing : 0,
-    pointerEvents: isOpen ? 'auto' : 'none',
-  }),
-);
+    pointerEvents: isOpen ? 'auto' : 'none'
+  })
+)
+
+export interface ChildButtonProps {
+  icon?: any
+  direction?: Directions
+  index?: number
+  size?: number
+  spacing?: number
+  isOpen?: boolean
+  onClick?: any
+  background?: string
+}
 
 const ChildButton = ({
-  direction = 'up',
+  direction = Directions.Up,
   index = 1,
-  size = '40',
+  size = 40,
   spacing = 0,
   isOpen = false,
   onClick = null,
   icon,
   ...rest
-}) => {
+}: ChildButtonProps) => {
   const offsetX =
     direction === 'right'
       ? (size + spacing) * index
       : direction === 'left'
       ? (size + spacing) * index * -1
-      : 0;
+      : 0
   const offsetY =
     direction === 'down'
       ? (size + spacing) * index
       : direction === 'up'
       ? (size + spacing) * index * -1
-      : 0;
+      : 0
 
   return (
     <Wrapper
@@ -70,22 +80,12 @@ const ChildButton = ({
       style={{
         transform: `translate(${isOpen ? 0 : -offsetX}px, ${
           isOpen ? 0 : -offsetY
-        }px)`,
+        }px)`
       }}
     >
       {icon}
     </Wrapper>
-  );
-};
+  )
+}
 
-ChildButton.propTypes = {
-  icon: PropTypes.node.isRequired,
-  direction: PropTypes.string,
-  index: PropTypes.number,
-  onClick: PropTypes.func,
-  isOpen: PropTypes.bool,
-  size: PropTypes.number,
-  spacing: PropTypes.number,
-};
-
-export default ChildButton;
+export default ChildButton
