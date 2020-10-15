@@ -1,16 +1,12 @@
-// import * as React from 'react'
-// import styles from './styles.module.css'
+import ChildButton, { ChildButtonProps } from './ChildButton';
+import FloatingMenu, { Directions } from './FloatingMenu';
+import MainButton, { MainButtonProps } from './MainButton';
 
-// interface Props {
-//   text: string
-// }
-
-// export const ExampleComponent = ({ text }: Props) => {
-//   return <div className={styles.test}>Example Component: {text}</div>
-// }
-
-import ChildButton from './ChildButton'
-import FloatingMenu from './FloatingMenu'
-import MainButton from './MainButton'
-
-export { ChildButton, FloatingMenu, MainButton }
+export {
+  ChildButton,
+  FloatingMenu,
+  MainButton,
+  Directions,
+  ChildButtonProps,
+  MainButtonProps,
+};

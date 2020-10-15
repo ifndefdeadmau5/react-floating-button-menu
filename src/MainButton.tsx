@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 // @ts-ignore
 const Wrapper = styled('a')(({ background, size }: any) => ({
@@ -17,8 +17,8 @@ const Wrapper = styled('a')(({ background, size }: any) => ({
   alignItems: 'center',
   width: size,
   height: size,
-  background
-}))
+  background,
+}));
 
 // @ts-ignore
 const IconWrapper = styled(({ isOpen, ...rest }) => <div {...rest} />)(
@@ -28,17 +28,17 @@ const IconWrapper = styled(({ isOpen, ...rest }) => <div {...rest} />)(
     WebkitTransition: '-webkit-transform 300ms',
     transition: 'transform 300ms',
     WebkitTransform: `rotate(${isOpen ? 180 : 0}deg)`,
-    transform: `rotate(${isOpen ? 180 : 0}deg)`
+    transform: `rotate(${isOpen ? 180 : 0}deg)`,
   })
-)
+);
 
 export interface MainButtonProps {
-  iconActive: any
-  iconResting: any
-  isOpen?: boolean
-  background: string
-  onClick: any
-  size: number
+  iconActive: any;
+  iconResting: any;
+  isOpen?: boolean;
+  background: string;
+  onClick: any;
+  size: number;
 }
 
 const MainButton = ({
@@ -53,7 +53,7 @@ const MainButton = ({
         {isOpen ? iconActive : iconResting}
       </IconWrapper>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default MainButton
+export default MainButton;

@@ -159,5 +159,5 @@ const MainButton = ({
   }, isOpen ? iconActive : iconResting));
 };
 
-export { ChildButton, FloatingMenu, MainButton };
+export { ChildButton, Directions, FloatingMenu, MainButton };
 //# sourceMappingURL=index.modern.js.map

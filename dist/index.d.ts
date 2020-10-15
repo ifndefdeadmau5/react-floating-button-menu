@@ -1,4 +1,4 @@
-import ChildButton from './ChildButton';
-import FloatingMenu from './FloatingMenu';
-import MainButton from './MainButton';
-export { ChildButton, FloatingMenu, MainButton };
+import ChildButton, { ChildButtonProps } from './ChildButton';
+import FloatingMenu, { Directions } from './FloatingMenu';
+import MainButton, { MainButtonProps } from './MainButton';
+export { ChildButton, FloatingMenu, MainButton, Directions, ChildButtonProps, MainButtonProps, };
