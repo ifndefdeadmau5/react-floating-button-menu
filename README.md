@@ -25,9 +25,11 @@ import {
   FloatingMenu,
   MainButton,
   ChildButton,
+  Directions
 } from 'react-floating-button-menu';
 import MdAdd from '@material-ui/icons/add';
 import MdClose from '@material-ui/icons/clear';
+import MdFavorite from '@material-ui/icons/favorite';
 
 
 state = {
@@ -36,31 +38,31 @@ state = {
 ...
   <FloatingMenu
     slideSpeed={500}
-    direction="up"
+    direction={Directions.Up}
     spacing={8}
     isOpen={this.state.isOpen}
   >
     <MainButton
       iconResting={<MdAdd style={{ fontSize: 20 }} nativeColor="white" />}
       iconActive={<MdClose style={{ fontSize: 20 }} nativeColor="white" />}
-      backgroundColor="black"
+      background="black"
       onClick={() => this.setState({ isOpen: !this.state.isOpen })}
       size={56}
     />
      <ChildButton
-      icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
-      backgroundColor="white"
+      icon={<MdFavorite style={{ fontSize: 20 }} />}
+      background="white"
       size={40}
       onClick={() => console.log('First button clicked')}
     />
     <ChildButton
-      icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
-      backgroundColor="white"
+      icon={<MdFavorite style={{ fontSize: 20 }} />}
+      background="white"
       size={40}
     />
     <ChildButton
-      icon={<MdFavorite style={{ fontSize: 20 }} nativeColor="black" />}
-      backgroundColor="white"
+      icon={<MdFavorite style={{ fontSize: 20 }} />}
+      background="white"
       size={40}
     />
   </FloatingMenu>
